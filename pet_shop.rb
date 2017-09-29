@@ -104,7 +104,7 @@ def customer_can_afford_pet(customer, new_pet)
   return false
 end
 
-#Test 18, 19, 20
+#Test 18, 19, 20, 21
 
 def sell_pet_to_customer(pet_shop, pet, customer)
 
@@ -121,7 +121,7 @@ def sell_pet_to_customer(pet_shop, pet, customer)
     pet_shop[:admin][:total_cash] += pet[:price]
     customer[:cash] -= pet[:price]
     pet_shop[:admin][:pets_sold] += 1
-    pet_shop[:pets] = remove_pet_by_name(pet_shop, pet[:name])
+    remove_pet_by_name(pet_shop, pet[:name])
 
   end
 
