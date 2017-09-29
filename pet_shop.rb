@@ -71,10 +71,33 @@ def add_pet_to_customer(customers, new_pet)
 end
 
 def customer_can_afford_pet(customer, new_pet)
-  for wallet in customer
-    if customer[:cash] >= new_pet[:price]
-      return true
-    end
+  if customer[:cash] >= new_pet[:price]
+    return true
   end
   return false
+end
+
+def sell_pet_to_customer(pet_shop, pet, customer)
+
+  return if pet == nil
+  # As the pet is not found, a nil value is returned
+  # Thus the previous function, breaks producing anouther nil.
+  # By returning the above, it meets a criteria and allows the
+  # function to run.
+
+  buying = customer_can_afford_pet(customer, pet)
+
+  if buying
+    customer[:pets].push(pet)
+    pet_shop[:admin][:total_cash] += pet[:price]
+    customer[:cash] -= pet[:price]
+    pet_shop[:admin][:pets_sold] += 1
+  # else
+  #   return customer[:pets]
+  #   pet_shop[:admin][:total_cash]
+  #   pet_shop[:admin][:pets_sold]
+
+  end
+
+
 end
