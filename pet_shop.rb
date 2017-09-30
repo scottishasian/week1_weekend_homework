@@ -123,13 +123,18 @@ def add_pet_to_stock(pet_shop, new_pet)
   return pet_shop[:pets].count()
 end
 
-
+# This function adds the new_pet hash to the
+# :pet array.
 
 #Test 14
 
 def customer_pet_count(customers)
   return customers[:pets].count()
 end
+
+# This function, checks the customers array, and
+# counts the number of pets within a specified customer's
+# :pets array.
 
 #Test 15
 
