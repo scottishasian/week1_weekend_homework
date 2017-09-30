@@ -142,6 +142,9 @@ def add_pet_to_customer(customers, new_pet)
   return customers[:pets] << new_pet
 end
 
+# This test adds the @new_pet hash to a
+# specified customer's :pets array.
+
 #Test 16 + 17
 
 def customer_can_afford_pet(customer, new_pet)
@@ -150,6 +153,11 @@ def customer_can_afford_pet(customer, new_pet)
   end
   return false
 end
+
+# This function checks if a specified customer has
+# enough money to afford a pet.
+# If the customers cash >= the price of a pet,
+# it will return true, if not false.
 
 #Test 18, 19, 20, 21
 
@@ -169,8 +177,14 @@ def sell_pet_to_customer(pet_shop, pet, customer)
     customer[:cash] -= pet[:price]
     pet_shop[:admin][:pets_sold] += 1
     remove_pet_by_name(pet_shop, pet[:name])
-
   end
-
-
 end
+
+# This function calls upon the customer_can_afford_pet
+# function. If it returns true, the function will
+# proceed to add the pet to their hash,remove it from
+# the @pet_shop's stock, remove cash from the customer
+# based on the pet's price, and add that amount to
+# the shops's account. If a customer has insuffiecient funds
+# or a pet is not found, the fuction will not not affect
+# any of the hashes.
